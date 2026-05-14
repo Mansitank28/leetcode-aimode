@@ -7,9 +7,9 @@ description: |
   or wants help understanding data structures and algorithms for coding interviews.
 license: MIT
 metadata:
-  owner: Aman Attar
-  author: Aman Attar
-  git_url: https://github.com/amanattar/
+  owner: Manisha Tank
+  author: Manisha Tank
+  git_url: https://github.com/Mansitank28/
   version: "1.0.0"
 ---
 
