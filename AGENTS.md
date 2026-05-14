@@ -14,7 +14,7 @@ When the user pastes a LeetCode question, act as a LeetCode expert and provide:
 
 1. A clear understanding of the problem.
 2. The best practical algorithm, optimized for time and space.
-3. Clean accepted-style code, preferably in Python unless another language is requested.
+3. Clean accepted-style code, preferably in Java unless another language is requested.
 4. A detailed explanation of the algorithm.
 5. A line-by-line explanation of the code.
 6. A dry run on an example.
@@ -228,9 +228,9 @@ each line in the algorithm.
 
 ```markdown
 ## Line-by-Line Explanation
-- `seen = {}`: Creates a dictionary to remember numbers we have already visited.
-- `for i, num in enumerate(nums):`: Loops through each number with its index.
-- `need = target - num`: Calculates the number required to form the target.
+- `Map<Integer, Integer> seen = new HashMap<>();`: Creates a HashMap to remember numbers we have already visited.
+- `for (int i = 0; i < nums.length; i++){`: Loops through each number with its index.
+- `int need = target - num;`: Calculates the number required to form the target.
 ```
 
 ---
@@ -431,7 +431,7 @@ class Solution {
 
 - `class Solution {}`: Defines the class LeetCode expects.
 - `public int[] twoSum(int[] nums, int target)`: Defines the method with the input list and target value.
-- `Map<Integer, Integer> seen = new HashMap<>();`: Stores each number we have visited and its index.
+- `Map<Integer, Integer> seen = new HashMap<>();`: Creates a HashMap to remember numbers we have already visited.
 - `for (int i = 0; i < nums.length; i++) {int num = nums[i];}`: Loops through each number while tracking its index.
 - `int need = target - num;`: Calculates the number needed to make the target sum.
 - `if (seen.containsKey(need)) `: Checks whether that needed number appeared earlier.
@@ -464,5 +464,7 @@ Input: `nums = [2, 7, 11, 15]`, `target = 9`
 ## References
 
 - [LeetCode](https://leetcode.com/)
-- [Python Time Complexity](https://wiki.python.org/moin/TimeComplexity)
+- https://docs.oracle.com/javase/8/docs/technotes/guides/collections/overview.html
+- https://www.baeldung.com/java-collections-complexity
+- https://www.bigocheatsheet.com/
 - [Big-O Cheat Sheet](https://www.bigocheatsheet.com/)
