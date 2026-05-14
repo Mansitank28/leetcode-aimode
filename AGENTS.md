@@ -43,7 +43,7 @@ to solve the same pattern again.
 8. [Provide a Dry Run](#provide-a-dry-run)
 
 ### Code Quality — **HIGH**
-9. [Write Clean Python](#write-clean-python)
+9. [Write Clean Java](#write-clean-java)
 10. [Use Helpful Variable Names](#use-helpful-variable-names)
 
 ---
@@ -118,14 +118,17 @@ When the prompt contains a LeetCode function signature, preserve it exactly.
 
 #### Correct
 
-```python
-class Solution:
-    def twoSum(self, nums: list[int], target: int) -> list[int]:
-        ...
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
+        
+    }
+}
+       ...
 ```
 
-If the original prompt uses `List[int]`, either import `List` or use Python 3.9+
-`list[int]`. Prefer the style already shown by the prompt.
+If the original prompt uses `List<Integer>`, either import `List` or use Java
+`List<Integer>`. Prefer the style already shown by the prompt.
 
 ---
 
@@ -276,18 +279,27 @@ Guidelines:
 
 #### Correct
 
-```python
-class Solution:
-    def twoSum(self, nums: list[int], target: int) -> list[int]:
-        seen: dict[int, int] = {}
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
 
-        for i, num in enumerate(nums):
-            need = target - num
-            if need in seen:
-                return [seen[need], i]
-            seen[num] = i
+        Map<Integer, Integer> seen = new HashMap<>();
 
-        return []
+        for (int i = 0; i < nums.length; i++) {
+
+            int num = nums[i];
+            int need = target - num;
+
+            if (seen.containsKey(need)) {
+                return new int[]{seen.get(need), i};
+            }
+
+            seen.put(num, i);
+        }
+
+        return new int[]{};
+    }
+}
 ```
 
 ---
@@ -326,8 +338,10 @@ When answering a pasted LeetCode question, use this structure:
 3. [Step three]
 
 ## Code
-```python
-class Solution:
+```java
+class Solution {
+    
+}
     ...
 ```
 
@@ -390,31 +404,40 @@ the target has already appeared.
 
 ## Code
 
-```python
-class Solution:
-    def twoSum(self, nums: list[int], target: int) -> list[int]:
-        seen: dict[int, int] = {}
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
 
-        for i, num in enumerate(nums):
-            need = target - num
-            if need in seen:
-                return [seen[need], i]
-            seen[num] = i
+        Map<Integer, Integer> seen = new HashMap<>();
 
-        return []
+        for (int i = 0; i < nums.length; i++) {
+
+            int num = nums[i];
+            int need = target - num;
+
+            if (seen.containsKey(need)) {
+                return new int[]{seen.get(need), i};
+            }
+
+            seen.put(num, i);
+        }
+
+        return new int[]{};
+    }
+}
 ```
 
 ## Line-by-Line Explanation
 
-- `class Solution:`: Defines the class LeetCode expects.
-- `def twoSum(...)`: Defines the method with the input list and target value.
-- `seen: dict[int, int] = {}`: Stores each number we have visited and its index.
-- `for i, num in enumerate(nums):`: Loops through each number while tracking its index.
-- `need = target - num`: Calculates the number needed to make the target sum.
-- `if need in seen:`: Checks whether that needed number appeared earlier.
-- `return [seen[need], i]`: Returns the earlier index and the current index.
-- `seen[num] = i`: Stores the current number for future checks.
-- `return []`: Fallback return; LeetCode usually guarantees an answer, but this keeps the function complete.
+- `class Solution {}`: Defines the class LeetCode expects.
+- `public int[] twoSum(int[] nums, int target)`: Defines the method with the input list and target value.
+- `Map<Integer, Integer> seen = new HashMap<>();`: Stores each number we have visited and its index.
+- `for (int i = 0; i < nums.length; i++) {int num = nums[i];}`: Loops through each number while tracking its index.
+- `int need = target - num;`: Calculates the number needed to make the target sum.
+- `if (seen.containsKey(need)) `: Checks whether that needed number appeared earlier.
+- `return new int[]{seen.get(need), i};`: Returns the earlier index and the current index.
+- `seen.put(num, i);`: Stores the current number for future checks.
+- `return new int[]{};`: Fallback return; LeetCode usually guarantees an answer, but this keeps the function complete.
 
 ## Dry Run
 
