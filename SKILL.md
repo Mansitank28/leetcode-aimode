@@ -217,15 +217,15 @@ class Solution {
 
 ## Line-by-Line Explanation
 
-- `class Solution:`: Defines the class LeetCode uses to run the solution.
-- `def twoSum(...)`: Defines the required method.
-- `seen: dict[int, int] = {}`: Creates a dictionary from number to index.
-- `for i, num in enumerate(nums):`: Visits each number with its index.
-- `need = target - num`: Finds the complement needed for the target.
-- `if need in seen:`: Checks whether the complement appeared earlier.
-- `return [seen[need], i]`: Returns the two valid indices.
-- `seen[num] = i`: Stores the current number for future checks.
-- `return []`: Provides a safe fallback if no pair exists.
+- `class Solution {`: Defines the class LeetCode uses to run the solution.
+- `public int[] twoSum(int[] nums, int target) {`: Defines the required method.
+- `Map<Integer, Integer> seen = new HashMap<>();: Creates a HashMap from number to index.
+- `for (int i = 0; i < nums.length; i++)`: Visits each number with its index.
+- `int need = target - num;`: Finds the complement needed for the target.
+- `if (seen.containsKey(need)) {`: Checks whether the complement appeared earlier.
+- `return new int[]{seen.get(need), i};`: Returns the two valid indices.
+- `seen.put(num, i);`: Stores the current number for future checks.
+- `return new int[]{};`: Provides a safe fallback if no pair exists.
 
 ## Dry Run
 
