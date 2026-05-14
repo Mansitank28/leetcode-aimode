@@ -72,6 +72,7 @@ Before writing code:
 Select the most suitable algorithmic pattern:
 
 - Hash map or set.
+- Arrays Pattern.
 - Two pointers.
 - Sliding window.
 - Prefix sum.
@@ -85,15 +86,25 @@ Select the most suitable algorithmic pattern:
 - Union find.
 - Trie.
 - Topological sort.
+- Hashing.
+- Linked List.
+- Trees.
+- Graphs.
+- Greedy.
+- Backtracking.
+- Dynamic Programming.
 
 ### 3. Write Accepted-Style Code (HIGH)
 
-Use the exact LeetCode method signature when provided. Prefer Python unless the
+Use the exact LeetCode method signature when provided. Prefer Java unless the
 user requests another language.
 
-```python
-class Solution:
-    def methodName(self, nums: list[int]) -> int:
+```java
+class Solution {
+    public int methodName(int[] nums) {
+        
+    }
+}
         ...
 ```
 
@@ -183,18 +194,25 @@ check whether its complement is already in the map.
 
 ## Code
 
-```python
-class Solution:
-    def twoSum(self, nums: list[int], target: int) -> list[int]:
-        seen: dict[int, int] = {}
+```java
+class Solution {
+    public int[] twoSum(int[] nums, int target) {
 
-        for i, num in enumerate(nums):
-            need = target - num
-            if need in seen:
-                return [seen[need], i]
-            seen[num] = i
+        Map<Integer, Integer> seen = new HashMap<>();
 
-        return []
+        for (int i = 0; i < nums.length; i++) {
+
+            int need = target - nums[i];
+
+            if (seen.containsKey(need)) {
+                return new int[]{seen.get(need), i};
+            }
+
+            seen.put(nums[i], i);
+        }
+
+        return new int[]{};
+    }
 ```
 
 ## Line-by-Line Explanation
